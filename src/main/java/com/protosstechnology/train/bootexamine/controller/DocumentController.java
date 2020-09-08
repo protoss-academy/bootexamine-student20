@@ -19,18 +19,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/document")
 public class DocumentController {
 
-    static final Logger LOGGER = LoggerFactory.getLogger(DocumentController.class);
+    static final Logger logger = LoggerFactory.getLogger(DocumentController.class);
 
     @Autowired
     DocumentService documentService;
 
     @PostMapping
     public ResponseEntity<Document> addDocument(@RequestBody Document document){
-        LOGGER.info("addDocument");
+        logger.info("addDocument");
 
         documentService.create(document);
 
-        LOGGER.info("Document Id = {}",document.getId());
+        logger.info("Document Id = {}",document.getId());
         return ResponseEntity.ok().body(document);
 
     }
@@ -48,7 +48,7 @@ public class DocumentController {
                     content = @Content) })
     @GetMapping("/{id}")
     public ResponseEntity<Document> getDocument(@PathVariable("id") String id){
-        LOGGER.info("getDocument id={}",id);
+        logger.info("getDocument id={}",id);
 
         return ResponseEntity.ok().body(documentService.read(Integer.parseInt(id)));
 
@@ -59,7 +59,7 @@ public class DocumentController {
                                                     @RequestBody Document document){
         document.setId(Integer.parseInt(id));
         documentService.update(document);
-        LOGGER.info("updateDocument id={}",document.getId());
+        logger.info("updateDocument id={}",document.getId());
         return ResponseEntity.ok().body(document);
     }
 
