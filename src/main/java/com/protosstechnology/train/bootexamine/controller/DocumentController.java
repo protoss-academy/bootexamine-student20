@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -21,15 +20,6 @@ import org.springframework.web.bind.annotation.*;
 public class DocumentController {
 
     static final Logger LOGGER = LoggerFactory.getLogger(DocumentController.class);
-
-//    @GetMapping("/hello")
-//    @ResponseBody
-//    public ResponseEntity<String> hellowWelcome(){
-//
-//        LOGGER.info("in DocumentController");
-//        return ResponseEntity.ok().body("Document");
-//
-//    }
 
     @Autowired
     DocumentService documentService;
